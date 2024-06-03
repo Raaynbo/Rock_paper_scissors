@@ -1,9 +1,9 @@
 Create computer's choice
     - create an integer variable initialized with 0 called cpuChoice
-    - randomize a number between 0 and 100
-    - when the number is lower than 33 cpChoice = rock
-    - when the number is between 33 and 66 cpuChoice = paper
-    - when the number is greater than 66 cpuChoice = scissors
+    - randomize a number between 0 and 3
+    - when the number is 0 cpChoice = rock
+    - when the number is 1 cpuChoice = paper
+    - when the number is 2 cpuChoice = scissors
 
 Get user's choice 
     create a string variable initialized with "" called userChoice
