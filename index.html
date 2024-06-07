@@ -4,13 +4,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<script type="text/javascript" src="rps.js"></script>
+	<script type="text/javascript" defer src="rps.js"></script>
 	<link rel="stylesheet" href="main.css" />
 </head>
 
 <body>
 	<main>
-		<div class="main_menu ">
+		<div class="main_menu hidden">
 			<h1> ROCK PAPER SCISSORS GAME</h1>
 			<ul>
 				<li id="ft2">First to 2</li>
@@ -19,17 +19,27 @@
 				<li id="about">About</li>
 			</ul>
 		</div>
-		<div class="game hidden ">
-			<h1> ROCK PAPER SCISSORS GAME</h1>
+		<div class="game ">
 			<div class="game__score">
-				<span id="score_user">0</span>
+				<span class="score" id="score_user">0</span>
 				-
-				<span id="score_cpu">0</span>
+				<span class="score" id="score_cpu">0</span>
+			</div>
+			<div class="game__action_zone">
+				<div class="game__action" id="action_user">
+					YOUR MOVE
+				</div>
+				<div class="game__action" id="action_cpu">
+					CPU MOVE
+				</div>
 			</div>
 			<div class="game__choice">
-				<img src="#" id="rock" alt="rock" />
-				<img src="#" id="paper" alt="paper" />
-				<img src="#" id="scissors" alt="scissors" />
+				<span class="game__choice_options" id="rock">rock
+				</span>
+				<span class="game__choice_options" id="paper">paper
+				</span>
+				<span class="game__choice_options" id="scissors">scissors
+				</span>
 			</div>
 		</div>
 		<button onclick="switchmenu();"> switch</button>

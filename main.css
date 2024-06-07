@@ -9,7 +9,7 @@ body {
 	align-items: center;
 	justify-content:center;
 	gap:100px;
-	height:100vh;
+	height:90vh;
 }
 
 ul {
@@ -24,10 +24,30 @@ li {
 	display:flex;
 	flex-direction:column;
 	align-items: center;
-	justify-content:center;
+	justify-content:start;
 	gap:100px;
-	height:100vh;
+	height:90vh;
+}
 
+.game__score{
+	margin-top:50px;
+}
+
+.score{
+	font-size:32px;
+}
+
+.game__choice{
+	margin-top: auto;
+}
+
+.game__action_zone{
+	display:flex;
+	justify-content:space-around;
+	width:100vw;
+}
+
+.game__action {
 }
 
 .hidden{

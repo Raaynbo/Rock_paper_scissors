@@ -1,4 +1,3 @@
-console.log("hello world");
 
 
 function createCpuChoice(){
@@ -12,20 +11,9 @@ function createCpuChoice(){
 	}
 }
 
-function getUserChoice(){
-	let UserInput = "";
-	let action = ["rock","paper", "scissors"];
-	UserInput = prompt("What's your next move ? ( Rock, Paper, Scissors)");
-	UserInput = UserInput.toLowerCase();
-	if (action.includes(UserInput) == true){
-		return UserInput;
-	}else{
-		return "";
-	}
-}
 
 function checkWinner(cpuChoice, userChoice){
-	winner = -1
+	winner = -1;
 	if (userChoice === "rock"){
 		switch (cpuChoice){
 			case 'rock':
@@ -66,22 +54,14 @@ function checkWinner(cpuChoice, userChoice){
 	return winner;
 }
 
-function gameLoop(){
-	let userScore = 0;
-	let cpuScore = 0;
-	let round = 1;
-	let keepGoing = true;
-	while(keepGoing){
-		console.log(" user : " + userScore);
-		console.log(" cpu : " + cpuScore);
+function gameLoop(userChoice){
 		console.log(" Round : " + round);
 		let cpuChoice = createCpuChoice();
-		let userChoice = "";
-		while(userChoice === ""){
-			userChoice = getUserChoice();
-		}
+
 		console.log("You played " + userChoice);
 		console.log("CPU played "+ cpuChoice);
+		userActionDisplay.textContent = userChoice;	
+		cpuActionDisplay.textContent = cpuChoice;	
 		let roundWinner = checkWinner(cpuChoice, userChoice);
 		switch (roundWinner){
 			case -1:
@@ -89,16 +69,23 @@ function gameLoop(){
 				break;
 			case 0:
 				console.log("YOU LOSE");
-				cpuScore += 1;
+				cpuScore.textContent =Number(cpuScore.textContent) + 1;
 				break;
 			case 1:
 				console.log("YOU WIN");
-				userScore += 1;
+				userScore.textContent =Number(userScore.textContent) + 1;
 				break;
 		}
 		round += 1;
-	}
+		if (userScore.textContent == 5){
+			alert("you win");
+			location.reload();
+		} else if (cpuScore.textContent == 5){
+			alert("You lose");
+			location.reload();
+		}
 }
+
 
 let menu_displayed = 0;
 
@@ -116,3 +103,17 @@ function switchmenu(){
 		menu_displayed = 0;
 	}
 }
+
+const userScore = document.querySelector("#score_user");
+const cpuScore = document.querySelector("#score_cpu");
+const userActionDisplay = document.querySelector("#action_user");
+const cpuActionDisplay = document.querySelector("#action_cpu");
+let round = 1;
+let userChoice = "";
+const userOptions = document.querySelectorAll(".game__choice_options");
+userOptions.forEach(userOption => {
+	userOption.addEventListener("click", (e) => {
+		userChoice = e.target.id;
+		gameLoop(userChoice);
+	});
+});
