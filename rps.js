@@ -77,12 +77,12 @@ function gameLoop(userChoice){
 				break;
 		}
 		round += 1;
-		if (userScore.textContent == 5){
+		if (userScore.textContent == ftMode){
 			alert("you win");
-			location.reload();
-		} else if (cpuScore.textContent == 5){
+			switchmenu("mainmenu");
+		} else if (cpuScore.textContent == ftMode){
 			alert("You lose");
-			location.reload();
+			switchmenu("mainmenu");
 		}
 }
 
@@ -90,19 +90,32 @@ function gameLoop(userChoice){
 let menu_displayed = 0;
 
 // ---- UI DISPLAY DEBUG ----
-function switchmenu(){
+function switchmenu(displaymode, gamemode){
 	const mainMenu = document.querySelector(".main_menu");
 	const gameUI = document.querySelector(".game");
-	if (menu_displayed === 0){
-		mainMenu.classList.add("hidden");
-		gameUI.classList.remove("hidden");
-		menu_displayed = 1;
-	} else if (menu_displayed === 1){
-		mainMenu.classList.remove("hidden");
-		gameUI.classList.add("hidden");
-		menu_displayed = 0;
+	console.log("switchingmenu")
+	switch(displaymode){
+		case "game":
+			mainMenu.classList.add("hidden");
+			gameUI.classList.remove("hidden");
+			ftMode = gamemode;
+			break;
+		case "mainmenu":
+			mainMenu.classList.remove("hidden");
+			gameUI.classList.add("hidden");
+			ftMode = 0;
+			userScore.textContent = 0;
+			cpuScore.textContent = 0;
+			break;
 	}
 }
+let ftMode = -1;
+const mainMenuChoice = document.querySelectorAll(".main_menu__mode");
+mainMenuChoice.forEach(modeOption => {
+	modeOption.addEventListener("click", (e)=> {
+		switchmenu("game", e.target.id);
+	});
+});
 
 const userScore = document.querySelector("#score_user");
 const cpuScore = document.querySelector("#score_cpu");
@@ -114,6 +127,7 @@ const userOptions = document.querySelectorAll(".game__choice_options");
 userOptions.forEach(userOption => {
 	userOption.addEventListener("click", (e) => {
 		userChoice = e.target.id;
+		console.log("ftmode", ftMode);
 		gameLoop(userChoice);
 	});
 });
