@@ -5,10 +5,35 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<script type="text/javascript" src="rps.js"></script>
+	<link rel="stylesheet" href="main.css" />
 </head>
 
 <body>
-	<h1>Open console to play the game.</h1>
+	<main>
+		<div class="main_menu ">
+			<h1> ROCK PAPER SCISSORS GAME</h1>
+			<ul>
+				<li id="ft2">First to 2</li>
+				<li id="ft3">First to 3</li>
+				<li id="ft5">First to 5</li>
+				<li id="about">About</li>
+			</ul>
+		</div>
+		<div class="game hidden ">
+			<h1> ROCK PAPER SCISSORS GAME</h1>
+			<div class="game__score">
+				<span id="score_user">0</span>
+				-
+				<span id="score_cpu">0</span>
+			</div>
+			<div class="game__choice">
+				<img src="#" id="rock" alt="rock" />
+				<img src="#" id="paper" alt="paper" />
+				<img src="#" id="scissors" alt="scissors" />
+			</div>
+		</div>
+		<button onclick="switchmenu();"> switch</button>
+	</main>
 </body>
 
 </html>

@@ -100,4 +100,19 @@ function gameLoop(){
 	}
 }
 
-gameLoop();
+let menu_displayed = 0;
+
+// ---- UI DISPLAY DEBUG ----
+function switchmenu(){
+	const mainMenu = document.querySelector(".main_menu");
+	const gameUI = document.querySelector(".game");
+	if (menu_displayed === 0){
+		mainMenu.classList.add("hidden");
+		gameUI.classList.remove("hidden");
+		menu_displayed = 1;
+	} else if (menu_displayed === 1){
+		mainMenu.classList.remove("hidden");
+		gameUI.classList.add("hidden");
+		menu_displayed = 0;
+	}
+}
