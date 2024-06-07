@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
+
 body {
 	margin:0;
 	padding:0;
+	font-family:"Agdasima", sans-serif;
+	font-weight:400;
+	font-size:20px;
 }
 
 .main_menu {
@@ -39,6 +45,22 @@ li {
 
 .game__choice{
 	margin-top: auto;
+	display:flex;
+	gap:50px;
+}
+
+.game__choice_options {
+	display:flex;
+	flex-direction:column;
+	text-align:center;
+	box-shadow: 0.125em 0.325em 5px black;
+	padding:10px;
+	border-radius:8px;
+	transition: all .4s ease-in-out;
+}
+
+.game__choice_options:hover {
+	transform:scale(1.3);
 }
 
 .game__action_zone{
@@ -53,3 +75,19 @@ li {
 .hidden{
 	display:none;
 }
+
+.back_menu{
+	pointer:default;
+	margin-right:auto;
+	margin-left:50px;
+}
+
+.icon{
+	height:100px;
+}
+
+#scissors {
+	height:120px;
+}
+
+

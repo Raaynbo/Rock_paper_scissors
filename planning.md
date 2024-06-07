@@ -29,3 +29,12 @@ Count score and ask to play again
     create an integeer variable called round and init with 1
     As long as the player want to continue, display userScore, cpuScore and round, ask get user's choice, create cpu choice and
     check for a winner, when the winner is the user increment userScore, otherwise increment cpuScore
+
+
+---- UI ----
+
+Make a menu, with 4 options ft2-ft3-ft5-about
+
+make a IG UI
+
+Make a replay menu 

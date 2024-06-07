@@ -87,7 +87,6 @@ function gameLoop(userChoice){
 }
 
 
-let menu_displayed = 0;
 
 // ---- UI DISPLAY DEBUG ----
 function switchmenu(displaymode, gamemode){
@@ -127,7 +126,7 @@ const userOptions = document.querySelectorAll(".game__choice_options");
 userOptions.forEach(userOption => {
 	userOption.addEventListener("click", (e) => {
 		userChoice = e.target.id;
-		console.log("ftmode", ftMode);
+		console.log("ftmode", userChoice);
 		gameLoop(userChoice);
 	});
 });
